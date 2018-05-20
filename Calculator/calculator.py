@@ -101,8 +101,6 @@ class Calculator(QMainWindow):
                 logger.debug(f'Error: {error}')
 
 
-
-
 def main():
     # add stream handler logger
     ch = logging.StreamHandler()
