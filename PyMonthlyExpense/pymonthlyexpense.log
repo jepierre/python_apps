@@ -1,7 +1,7 @@
-2018-05-19 23:38:35,639: main-gui           - DEBUG    - Main            - __init__             -  45    -loading main.ui
-2018-05-19 23:38:38,252: main-gui           - DEBUG    - Main            - calculate_total      -  68    -Not a valid csv file
-2018-05-19 23:38:43,489: main-gui           - DEBUG    - Main            - open_file            -  60    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyMonthlyExpense/PyMonthlyExpense/transaction.csv
-2018-05-19 23:38:44,930: main-gui           - DEBUG    - Main            - calculate_total      -  73    -dataframe dtypes: Description              object
+2018-05-20 10:03:05,906: main-gui           - DEBUG    - Main            - __init__             -  45    -loading main.ui
+2018-05-20 10:03:09,721: main-gui           - DEBUG    - Main            - calculate_total      -  68    -Not a valid csv file
+2018-05-20 10:05:08,490: main-gui           - DEBUG    - Main            - open_file            -  60    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyMonthlyExpense/transaction.csv
+2018-05-20 10:05:10,594: main-gui           - DEBUG    - Main            - calculate_total      -  73    -dataframe dtypes: Description              object
 Original Description     object
 Amount                  float64
 Transaction Type         object
@@ -10,9 +10,9 @@ Account Name             object
 Labels                  float64
 Notes                   float64
 dtype: object
-2018-05-19 23:38:44,932: main-gui           - DEBUG    - Main            - calculate_total      -  74    -remove unnecessary data columns
-2018-05-19 23:38:44,933: main-gui           - DEBUG    - Main            - calculate_total      -  77    -Removing transfer and credit transactions
-2018-05-19 23:38:44,940: main-gui           - DEBUG    - Main            - calculate_total      -  83    -df:
+2018-05-20 10:05:10,613: main-gui           - DEBUG    - Main            - calculate_total      -  74    -remove unnecessary data columns
+2018-05-20 10:05:10,614: main-gui           - DEBUG    - Main            - calculate_total      -  77    -Removing transfer and credit transactions
+2018-05-20 10:05:10,621: main-gui           - DEBUG    - Main            - calculate_total      -  83    -df:
               Description  Amount Transaction Type     Category Account Name
 Date                                                                        
 5/12/2018         Groupon   39.00            debit     Shopping  CREDIT CARD
@@ -23,10 +23,8 @@ Date
 12/1/2017          Amazon    5.00            debit     Shopping  CREDIT CARD
 11/26/2017     Sam's Club   26.89            debit     Shopping  CREDIT CARD
 5/28/2017    Parkindy Llc    1.50            debit      Parking  CREDIT CARD
-2018-05-19 23:38:44,985: main-gui           - DEBUG    - Main            - calculate_total      -  121   -result:
+2018-05-20 10:05:10,659: main-gui           - DEBUG    - Main            - calculate_total      -  121   -result:
 Empty DataFrame
 Columns: [Jun 17, July 17, Aug 17, Sep 17, Oct 17, Nov 17, Dec 17, Jan 18, Feb 18, Mar 18, Apr 18, May 18]
 Index: []
-2018-05-19 23:38:44,986: main-gui           - DEBUG    - Main            - update_table         -  143   -updating table
-2018-05-19 23:42:57,617: main-gui           - DEBUG    - Main            - __init__             -  45    -loading main.ui
-2018-05-19 23:43:00,146: main-gui           - DEBUG    - Main            - calculate_total      -  68    -Not a valid csv file
+2018-05-20 10:05:10,659: main-gui           - DEBUG    - Main            - update_table         -  143   -updating table

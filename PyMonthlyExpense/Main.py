@@ -7,7 +7,7 @@ Last Edited: 05/19/2018
 
 __appname__ = 'PyMonthlyExpense'
 __module__ = 'main'
-#__path__ = r'.'
+#__path__ = r'.\PyMonthlyExpense'
 import PyMonthlyExpense.ui_files
 
 
@@ -24,7 +24,7 @@ import pandas as pd
 from datetime import datetime
 
 
-app_data_path = r'.'
+app_data_path = r'.\PyMonthlyExpense'
 logging.basicConfig(filename=app_data_path + r'\pymonthlyexpense.log',
                     format='%(asctime)-15s: %(name)-18s - %(levelname)-8s - %(module)-15s - %(funcName)-20s - %(lineno)\
                     -6d -%(message)s')

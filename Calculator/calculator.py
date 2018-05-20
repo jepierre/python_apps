@@ -29,6 +29,7 @@ class Calculator(QMainWindow):
 
         self.setWindowTitle(__appname__)
         self.setGeometry(300, 300, 320, 240)
+        # self.setStyleSheet('background-color: pink')
         self.setFixedSize(self.size())
         self.show()
 
