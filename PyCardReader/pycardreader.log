@@ -1,0 +1,31 @@
+2018-05-20 11:55:01,011: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 11:55:15,770: main-gui           - DEBUG    - Main            - open_file            -  55    -open_file_name: 
+2018-05-20 11:55:22,047: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 11:56:14,753: main-gui           - DEBUG    - Main            - save_file            -  59    -save_file_name: 
+2018-05-20 11:56:18,552: main-gui           - DEBUG    - Main            - open_file            -  55    -open_file_name: 
+2018-05-20 11:56:28,616: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 11:56:38,536: main-gui           - DEBUG    - Main            - open_file            -  55    -open_file_name: 
+2018-05-20 11:56:58,414: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 11:58:44,307: main-gui           - DEBUG    - Main            - open_file            -  55    -open_file_name: 
+2018-05-20 11:59:39,140: main-gui           - DEBUG    - Main            - __init__             -  40    -loading main.ui
+2018-05-20 11:59:44,133: main-gui           - DEBUG    - Main            - open_file            -  56    -open_file_name: 
+2018-05-20 12:00:51,628: main-gui           - DEBUG    - Main            - __init__             -  40    -loading main.ui
+2018-05-20 12:00:57,339: main-gui           - DEBUG    - Main            - save_file            -  60    -save_file_name: 
+2018-05-20 12:08:58,948: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 12:09:04,475: main-gui           - DEBUG    - Main            - open_file            -  52    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 12:09:26,239: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 12:09:30,742: main-gui           - DEBUG    - Main            - open_file            -  52    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 12:09:47,165: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 12:09:57,588: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 12:10:02,585: main-gui           - DEBUG    - Main            - open_file            -  52    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 12:10:57,394: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 12:11:02,219: main-gui           - DEBUG    - Main            - open_file            -  52    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 12:11:30,071: main-gui           - DEBUG    - Main            - __init__             -  39    -loading main.ui
+2018-05-20 12:11:34,784: main-gui           - DEBUG    - Main            - open_file            -  52    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 18:57:41,832: main-gui           - DEBUG    - Main            - __init__             -  40    -loading main.ui
+2018-05-20 20:59:12,058: main-gui           - DEBUG    - Main            - __init__             -  40    -loading main.ui
+2018-05-20 20:59:19,891: main-gui           - DEBUG    - Main            - open_file            -  53    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 21:00:01,881: main-gui           - DEBUG    - Main            - __init__             -  40    -loading main.ui
+2018-05-20 21:05:59,194: main-gui           - DEBUG    - Main            - __init__             -  40    -loading main.ui
+2018-05-20 21:06:05,044: main-gui           - DEBUG    - Main            - open_file            -  53    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_01.png
+2018-05-20 21:06:21,907: main-gui           - DEBUG    - Main            - open_file            -  53    -open_file_name: D:/Documents/4_Programming/python/python_apps/PyCardReader/images/credit_card_02.png
