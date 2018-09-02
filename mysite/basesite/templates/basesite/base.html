@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <!-- basics
+      ======================================================= -->
+      <meta charset="utf-8">
+      <title>{% block head_title %}basesite{% endblock %}</title>
+      <meta name="description" content="">
+      <meta name="author" content="MySite">
+
+      <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS 
+          ======================================================= -->
+		  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		  <link rel="stylesheet" type="text/css" href="{% static 'basesite/css/main.css' %}?v={{ time_value}}">
+
+		<!-- Scripts (from bootstrap)
+		  ======================================================= -->
+		  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+		  </script>
+
+  </head>
+  <body id="top">
+    <header >
+
+
+      <!-- Navigation
+        ======================================================= -->
+      <nav class="nav_bar">
+        <ul class="nav_bar_list">
+          <li class="current"><a href="{% url 'basesite:index' %}" title="home">Home</a></li>
+          <li><a href="{% url 'basesite:index' %}#about" title="about">About</a></li>
+          <li><a href="{% url 'basesite:index' %}#books" title="books">Books</a></li>
+		  {% block blog %}
+          <li><a href="{% url 'basesite:index' %}#blog" title="blog">Blog</a></li>
+          {% endblock %}
+		  <li><a href="{% url 'basesite:index' %}#contact" title="contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav_logo" >
+        <a href="{% url 'basesite:index' %}">{% block title %}basesite{% endblock %}</a>
+      </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="go-top">
+      <a class="smoothscroll" title="Back to Top" href="#top">Back to Top</a>
+    </div>
+  </body>
+</html>

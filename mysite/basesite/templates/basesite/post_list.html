@@ -1,0 +1,19 @@
+{% extends "basesite/base.html" %}
+{% block blog %}
+ <li><a href="{% url 'basesite:post_list' %}" title="blog">Blog</a></li>
+{% endblock %}
+{% block content %}
+ <h1> Blog </h1>
+
+{% for post in posts %}
+	<div >
+		<div >
+			<a href="{{ post.get_absolute_url }}">{{ post.publish }} </a>
+		</div>
+		<h2 ><a href="{{ post.get_absolute_url }}">{{post.title }}</a></h2>
+		<p>
+		{{ post.body|truncatewords:30|linebreaks }}
+		</p>
+	</div>
+{% endfor %}
+{% endblock %}

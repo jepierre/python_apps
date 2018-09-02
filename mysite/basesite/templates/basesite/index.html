@@ -1,0 +1,54 @@
+{% extends 'basesite\base.html' %}
+
+{% block content %}
+<section id="home" class="section_header">
+  <h1> Home </h1>
+  <p1> You are looking at my page </p>
+</section>
+
+<section id="about" class="section_header">
+  <h1> About Me </h1>
+  <p> This is about me </p>
+</section>
+
+<section id="books" class="section_header">
+  <h1> Books </h1>
+  <p> These are the books that I've read over the years </p>
+
+</section>
+
+<section id="blog" class="section_header">
+  <h1> Blog </h1>
+
+{% for post in posts %}
+	<div >
+		<div >
+			<a href="{{ post.get_absolute_url }}">{{ post.publish }} </a>
+		</div>
+		<h2 ><a href="{{ post.get_absolute_url }}">{{post.title }}</a></h2>
+		<p>
+		{{ post.body|truncatewords:30|linebreaks }}
+		</p>
+	</div>
+	
+	<div >
+		<p> <a href="{% url 'basesite:post_list' %}"> View all posts </a></p>
+	</div>
+{% endfor %}
+</section>
+
+<section id="contact" class="section_header">
+	<h1>Contact Me</h1>
+	<div class="container">
+		<form method="post" class="form_field">
+		  {% csrf_token %}
+		  {{ form.as_p }}
+		  <div class="form-actions">
+			<input type="submit" value="Send"/>
+			<!-- <button type="submit">Send</button> -->
+		  </div>
+		</form>
+	</div>
+</section>
+
+{% endblock %}

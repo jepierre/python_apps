@@ -1,0 +1,15 @@
+name: django_env
+channels:
+  - defaults
+  - pypi
+dependencies:
+  - certifi=2018.8.13=py37_0
+  - pip=10.0.1=py37_0
+  - python=3.7.0=hea74fb7_0
+  - setuptools=40.0.0=py37_0
+  - vc=14.1=h0510ff6_3
+  - vs2015_runtime=15.5.2=3
+  - wheel=0.31.1=py37_0
+  - wincertstore=0.2=py37_0
+prefix: C:\Users\PRIME\Anaconda3\envs\django_env
+
