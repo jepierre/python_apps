@@ -23,8 +23,9 @@ from PyQt5.QtCore import (QTime, QTimer, Qt, QThread, pyqtSignal, QSettings, QCo
 import pandas as pd
 from datetime import datetime
 
-
-app_data_path = r'.\PyMonthlyExpense'
+PATH = os.path.dirname(__file__)
+print(PATH)
+app_data_path = PATH
 logging.basicConfig(filename=app_data_path + r'\pymonthlyexpense.log',
                     format='%(asctime)-15s: %(name)-18s - %(levelname)-8s - %(module)-15s - %(funcName)-20s - %(lineno)\
                     -6d -%(message)s')

@@ -28,3 +28,35 @@ Empty DataFrame
 Columns: [Jun 17, July 17, Aug 17, Sep 17, Oct 17, Nov 17, Dec 17, Jan 18, Feb 18, Mar 18, Apr 18, May 18]
 Index: []
 2018-05-20 10:05:10,659: main-gui           - DEBUG    - Main            - update_table         -  143   -updating table
+2018-06-22 12:00:48,914: main-gui           - DEBUG    - Main            - __init__             -  46    -loading main.ui
+2018-06-22 12:00:51,455: main-gui           - DEBUG    - Main            - calculate_total      -  69    -Not a valid csv file
+2018-06-22 12:00:58,578: main-gui           - DEBUG    - Main            - open_file            -  61    -open_file_name: J:/My Documents/Python Scripts/python_apps/PyMonthlyExpense/transaction.csv
+2018-06-22 12:00:59,747: main-gui           - DEBUG    - Main            - calculate_total      -  74    -dataframe dtypes: Description              object
+Original Description     object
+Amount                  float64
+Transaction Type         object
+Category                 object
+Account Name             object
+Labels                  float64
+Notes                   float64
+dtype: object
+2018-06-22 12:00:59,747: main-gui           - DEBUG    - Main            - calculate_total      -  75    -remove unnecessary data columns
+2018-06-22 12:00:59,749: main-gui           - DEBUG    - Main            - calculate_total      -  78    -Removing transfer and credit transactions
+2018-06-22 12:00:59,767: main-gui           - DEBUG    - Main            - calculate_total      -  84    -df:
+              Description  Amount     ...          Category Account Name
+Date                                  ...                               
+5/12/2018         Groupon   39.00     ...          Shopping  CREDIT CARD
+4/1/2018    La Vida Mocha    4.60     ...       Restaurants  CREDIT CARD
+3/1/2018             USPS    1.00     ...          Shipping  CREDIT CARD
+2/19/2018          Amazon   17.68     ...          Shopping  CREDIT CARD
+1/31/2018          Amazon   28.11     ...          Shopping  CREDIT CARD
+12/1/2017          Amazon    5.00     ...          Shopping  CREDIT CARD
+11/26/2017     Sam's Club   26.89     ...          Shopping  CREDIT CARD
+5/28/2017    Parkindy Llc    1.50     ...           Parking  CREDIT CARD
+
+[8 rows x 5 columns]
+2018-06-22 12:00:59,813: main-gui           - DEBUG    - Main            - calculate_total      -  122   -result:
+Empty DataFrame
+Columns: [Jun 17, July 17, Aug 17, Sep 17, Oct 17, Nov 17, Dec 17, Jan 18, Feb 18, Mar 18, Apr 18, May 18]
+Index: []
+2018-06-22 12:00:59,815: main-gui           - DEBUG    - Main            - update_table         -  144   -updating table
