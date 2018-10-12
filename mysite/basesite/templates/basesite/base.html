@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+    <!-- basics
+      ======================================================= -->
+      <meta charset="utf-8">
+      <title>{% block head_title %}Basesite{% endblock %}</title>
+      <meta name="description" content="">
+      <meta name="author" content="Website Name">
+
+      <!-- mobile specific metas
+        ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- CSS 
+          ======================================================= -->
+
+          <!-- Bootstrap CSS CDN -->
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+          <!-- Custom CSS -->
+          <link rel="stylesheet" type="text/css" href="{% static 'basesite/css/main.css' %}?v={{ time_value}}">
+
+
+  </head>
+  <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+ 
+      <!-- Navigation
+        ======================================================= -->
+
+        <nav id="#Navbar" class="container-fluid navbar navbar-expand-lg  navbar-bg-dark fixed-top">
+
+          <a class="navbar-brand" href="{% url 'basesite:index' %}">{% block title %}basesite{% endblock %}</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+
+
+          <div class="collapse navbar-collapse justify-content-end" id="myNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a class="nav-link" href="#home" title="home">Home</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#about" title="about">About</a></li>
+              {% block blog %}
+              <li class="nav-item"><a class="nav-link" href="#blog" title="blog">Blog</a></li>
+              {% endblock %}
+              <li class="nav-item"><a class="nav-link" href="#contact" title="contact">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+
+	<header>
+    </header>
+    {% block content %}
+		<!-- this is where items from site in other html will load -->
+    {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="container-fluid text-center ">
+      <p><a href="#myPage" title="To Top">
+        <i class="fas fa-angle-up"><br>
+        </i>	  Back to Top
+      </a><br></p>
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts (from bootstrap)
+      ======================================================= -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!-- jQuery CDN - Slim version (=without AJAX) -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+      <!-- Popper.JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	  <!-- my custom JS -->
+	  <script src="{% static 'bassite\js\main.js' %}"></script>
+  </body>
+</html>

@@ -21,7 +21,7 @@ class Main(QMainWindow):
         super().__init__(parent)
         uic.loadUi(r'main.ui', self)
         self.busy_thread = QThread()
-        self.actionExit.triggered.connect(sys.exit)
+        #self.actionExit.triggered.connect(sys.exit)
         self.initUi()
 
     def initUi(self):

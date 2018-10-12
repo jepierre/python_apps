@@ -1,0 +1,49 @@
+{% extends 'basesite\base.html' %}
+
+{% block content %}
+<section id="home" class="container-fluid">
+  <h1> Home </h1>
+  <p1> You are looking at my page </p>
+</section>
+
+<section id="about" class="container-fluid bg-2">
+  <h1> About Me </h1>
+  <p> This is about me </p>
+</section>
+
+
+<section id="blog" class="container-fluid">
+  <h1> Blog </h1>
+
+{% for post in posts %}
+	<div >
+		<div >
+			<a href="{{ post.get_absolute_url }}">{{ post.publish }} </a>
+		</div>
+		<h2 ><a href="{{ post.get_absolute_url }}">{{post.title }}</a></h2>
+		<p>
+		{{ post.body|truncatewords:30|linebreaks }}
+		</p>
+	</div>
+	
+	<div >
+		<p> <a href="{% url 'basesite:post_list' %}"> View all posts </a></p>
+	</div>
+{% endfor %}
+</section>
+
+<section id="contact" class="container-fluid bg-2">
+	<h1>Contact Me</h1>
+	<div class="container">
+		<form method="post" class="form-group">
+		  {% csrf_token %}
+		  {{ form.as_p }}
+		  <div class="form-actions">
+			<input type="submit" value="Send"/>
+			<!-- <button type="submit">Send</button> -->
+		  </div>
+		</form>
+	</div>
+</section>
+
+{% endblock %}
