@@ -5,6 +5,8 @@
 Author: Jean Pierre
 Last Edited:
 
+to run:
+    python -m unittest -v test_mycode.py
 """
 
 # Python 2 compatible
@@ -19,11 +21,10 @@ from IntroToComputationAndProgramming import *
 class MyTests(unittest.TestCase):
 
     def test_get_largest_odd_number(self):
-        self.assertEqual(get_largest_odd_number(x=10, y=20, z=9), 9)
+        self.assertEqual(get_largest_odd_number(x=10, y=20, z=9), 9, msg='my message')
 
 def main():
-    pass
-
+    unittest.main()
 
 if __name__ == '__main__':
     main()
