@@ -1,0 +1,113 @@
+body{
+  text-align: center;    
+    background-image: url("../images/blue_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vh 100hw;
+  background-color: white;
+  max-width: 800px;
+  margin: auto;
+  height: 100vh;
+}
+h1{
+  font-weight: normal;
+  color: white;
+  font-size: 2.5em;
+  background-color: gray;
+}
+
+
+.nav_bar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 5px;
+  right: 10px;
+}
+
+.nav_bar_list li {
+  float: left;
+}
+
+.nav_bar_list li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.nav_bar_list li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.nav_bar_list li.active a {
+  background-color: #4CAF50;
+  color: #af2b2b;
+}
+
+.nav_logo {
+  position: fixed;
+  left: 10px;
+}
+.section_header{
+	padding-top: 20px;
+	height:100vh;
+}
+/*
+#home{
+  padding: 1px;
+  margin-top: 1px;
+}
+#books{
+  padding: 6px;
+  margin-top: 6px;
+}
+*/
+
+.go-top {
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+}
+
+
+
+input[type=submit] {
+	background-color: #333;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+	width: 100%;
+	text-align: center;
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* for the form */
+.form_field p {
+  display: block;
+  color: black;
+  text-align: left;
+  padding: 14px 20px 20px 20px;
+  text-decoration: none;
+}
+/* padding is: top right bottom left */
+.form_field label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+
