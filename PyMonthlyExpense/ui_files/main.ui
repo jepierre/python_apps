@@ -13,36 +13,158 @@
   <property name="windowTitle">
    <string> PyDataMan 0.1</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#main_table{
+	font: 75 10pt &quot;Sitka Text&quot;;
+
+    gridline-color: #fffff8;
+    border-width: 1px;
+    border-style: solid;
+    border-color: purple;
+}
+
+
+QHeaderView::section{
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                      stop:0 #616161, stop: 0.5 #505050,
+                                      stop: 0.6 #434343, stop:1 #656565);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;
+	font: 75 10pt &quot;Sitka Text&quot;;
+}
+QHeaderView::section:checked
+{
+    background-color: rgb(255, 185, 189);
+}
+
+QPushButton, QToolButton{
+	font: 12pt &quot;Rockwell&quot;;font-weight: bold;
+color: white;
+ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, stop: 0.1 #99e, stop: 0.49 #77c, stop: 0.5 #66b, stop: 1 #77c);
+	border: 3px solid gray;
+	border-radius: 7;
+ 	padding-left: 5px;
+ 	padding-right: 5px;
+}
+QToolBar {
+    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(86, 88, 66, 255), stop:1 rgba(255, 255, 255, 255));
+    spacing: 3px; /* spacing between items in the tool bar */
+}
+QTableView QTableCornerButton::section {
+    background: red;
+    border: 2px outset red;
+}
+
+QHeaderView::section:horizontal
+{
+    border-top: 1px solid #fffff8;
+}
+
+QHeaderView::section:vertical
+{
+    border-left: 1px solid #fffff8;
+background: silver;
+}
+
+/*QWidget {
+    background-color: #333333;
+    color: #fffff8;
+}*/
+QTableView::item{
+	background-color: QLinearGradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eef, stop: 1 #ccf);
+
+}
+QTableView::item::alternate{
+    background-color: rgb(255, 251, 187);
+}
+QTableView::pane{
+background: red;
+}</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="main_table">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>30</y>
-      <width>801</width>
-      <height>511</height>
-     </rect>
-    </property>
-    <attribute name="horizontalHeaderVisible">
-     <bool>true</bool>
-    </attribute>
-    <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>150</number>
-    </attribute>
-   </widget>
-   <widget class="QPushButton" name="btn_calculatetotal">
-    <property name="geometry">
-     <rect>
-      <x>700</x>
-      <y>0</y>
-      <width>91</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Calculate Total</string>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_calculatetotal">
+        <property name="text">
+         <string>Calculate Total</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="main_table">
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustToContents</enum>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderVisible">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>150</number>
+      </attribute>
+      <row>
+       <property name="text">
+        <string>New Row</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>New Row</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>New Row</string>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string>New Row</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>New Column</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>New Column</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>New Column</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>New Column</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="main_menubar">
    <property name="geometry">
@@ -60,19 +182,22 @@
     <addaction name="action_open"/>
     <addaction name="action_save"/>
     <addaction name="separator"/>
+    <addaction name="action_save_as"/>
+    <addaction name="separator"/>
     <addaction name="action_exit"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
      <string>Edit</string>
     </property>
-    <addaction name="actionPreferences"/>
+    <addaction name="action_preferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAbout"/>
+    <addaction name="action_about"/>
    </widget>
    <addaction name="menu_file"/>
    <addaction name="menuEdit"/>
@@ -92,34 +217,44 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="action_open"/>
+   <addaction name="action_save"/>
    <addaction name="separator"/>
-   <addaction name="actionPreferences"/>
+   <addaction name="action_save_as"/>
    <addaction name="separator"/>
-   <addaction name="actionAbout"/>
+   <addaction name="action_preferences"/>
+   <addaction name="separator"/>
+   <addaction name="action_about"/>
+   <addaction name="separator"/>
   </widget>
   <action name="action_exit">
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionPreferences">
+  <action name="action_preferences">
    <property name="text">
-    <string>Preferences</string>
+    <string>&amp;Preferences</string>
    </property>
   </action>
-  <action name="actionAbout">
+  <action name="action_about">
    <property name="text">
-    <string>About</string>
+    <string>&amp;About</string>
    </property>
   </action>
   <action name="action_open">
    <property name="text">
-    <string>Open</string>
+    <string>&amp;Open</string>
    </property>
   </action>
   <action name="action_save">
    <property name="text">
-    <string>Save</string>
+    <string>&amp;Save</string>
+   </property>
+  </action>
+  <action name="action_save_as">
+   <property name="text">
+    <string>&amp;Save As</string>
    </property>
   </action>
  </widget>
