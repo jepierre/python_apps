@@ -74,6 +74,18 @@ class ObjectToThread(QObject):
 
 
 class Main(QMainWindow):
+
+    class TempClass(QThread):
+        def __init__(self):
+            QThread.__init__(self)
+
+        def run(self):
+            for x in range(1000):
+                logger.debug(f'in temp class: {x}')
+                time.sleep(1)
+
+
+    tmp_clas = TempClass()
     INTERVAL = 1000
     count = 0
     thread_counter = 0
@@ -87,9 +99,12 @@ class Main(QMainWindow):
         self.init_ui()
 
     def init_ui(self):
+        self.temp_thread = self.TempClass()
+        self.temp_thread.finished.connect(self.print_all_done)
+        self.temp_thread.start()
         self.print_msg()
         self.use_qthread()
-        # self.use_runnable()
+        self.use_runnable()
         self.use_move_to_thread()
         self.show()
 
