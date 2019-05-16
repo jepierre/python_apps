@@ -35,7 +35,7 @@ logger.setLevel(logging.DEBUG)
 class Main(QMainWindow):
     open_file_name = None
     save_file_name = None
-    year = 2018
+    year = 2019
     result = None
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 

@@ -12,7 +12,7 @@ class AThread(QThread):
     def run(self):
         count = 0
         while count < 5:
-            time.sleep(1)
+            time.sleep(5)
             print("A Increasing")
             count += 1
 
@@ -28,6 +28,7 @@ class SomeObject(QObject):
             time.sleep(1)
             print("B Increasing: {}".format(count))
             count += 1
+            time.sleep(2)
         self.finished.emit()
 
 # Using a QRunnable
@@ -72,10 +73,10 @@ def using_q_runnable():
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    using_q_thread()
+    # using_q_thread()
     using_move_to_thread()
     # some_object = SomeObject()
     # some_object.long_running()
-    print("something")
-    #using_q_runnable()
+    # print("something")
+    # using_q_runnable()
 

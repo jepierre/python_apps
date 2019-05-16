@@ -37,15 +37,25 @@
       <item row="1" column="1">
        <widget class="QLineEdit" name="threadLineEdit"/>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="print3Label">
+      <item row="3" column="0">
+       <widget class="QLabel" name="thread3Label">
         <property name="text">
-         <string>print3</string>
+         <string>thread3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="thread3LineEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="thread2Label">
+        <property name="text">
+         <string>thread2</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="print3LineEdit"/>
+       <widget class="QLineEdit" name="thread2LineEdit"/>
       </item>
      </layout>
     </item>

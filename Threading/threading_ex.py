@@ -23,6 +23,7 @@ class Main(QMainWindow):
         self.initUi()
 
     def initUi(self):
+        # this will never work because you shouldn't move the main gui to a thread
         self.moveToThread(self.busy_thread)
         self.finished.connect(self.busy_thread.quit)
         self.busy_thread.started.connect(self.print_thread_msg)
@@ -78,6 +79,7 @@ class Main(QMainWindow):
             if self.thread_counter > loop:
                 self.thread_counter = 0
             else:
+                time.sleep(1)
                 self.thread_counter += 1
 
         self.threadLineEdit.setText(f'thread counter: {self.thread_counter}')
