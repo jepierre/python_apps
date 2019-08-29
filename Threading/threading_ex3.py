@@ -1,3 +1,7 @@
+"""
+based on the tutorial:
+https://nikolak.com/pyqt-threading-tutorial/
+"""
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QSplashScreen, QMainWindow
 from PyQt5.QtCore import QTime, QTimer, Qt, QThread, pyqtSignal, QObject, QRunnable, QThreadPool

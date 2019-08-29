@@ -1,6 +1,15 @@
-
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
 .idea/workspace.xml
 .idea/Apps.iml
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+*/logs/*
+# Generated files
+.idea/**/contentModel.xml
+__pycache__/
+/__pycache__/*
