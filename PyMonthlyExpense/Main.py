@@ -81,12 +81,17 @@ class Main(QMainWindow):
     def open_file(self):
         self.open_file_name = QFileDialog.getOpenFileName(self, "Open CSV File", app_data_path, 'All files (*.*)')[0]
         logger.debug(f'open_file_name: {self.open_file_name}')
-        if self.open_file_name:
-            self.save_file_name = os.path.splitext(self.open_file_name)[0] + '_result.xlsx'
+        # if self.open_file_name:
+        #     self.save_file_name = os.path.splitext(self.open_file_name)[0] + '_result.xlsx'
 
     def save_file(self):
-        if not self.save_file_name:
+        if not self.open_file_name:
             return
+        if not self.save_file_name:
+            self.save_file_name = os.path.splitext(self.open_file_name)[0] + '_result.xlsx'
+            self.save_as_file()
+            return
+
         logger.debug(f'save_file_name: {self.save_file_name}')
         if self.save_file_name and self.result is not None:
             self.result.to_excel(self.save_file_name)
