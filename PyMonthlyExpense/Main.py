@@ -35,7 +35,7 @@ logger.setLevel(logging.DEBUG)
 class Main(QMainWindow):
     open_file_name = None
     save_file_name = None
-    year = 2019
+    year = None
     result = None
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
@@ -60,22 +60,38 @@ class Main(QMainWindow):
         custom_logger = CustomLoggerWidget(self)
         self.addDockWidget(Qt.BottomDockWidgetArea, custom_logger)
 
-        logger.debug('adding stylesheet')
-        # adds a stylesheet
-        # self.main_table.setStyleSheet("""
-        #     font: 12pt "Sitka Text";
-        #     background: rgb(204, 199, 255);
-        #     """)
+        # set current year to combox year
+        self.cb_year.currentIndexChanged.connect(self.set_year)
+
+        #todo: set stylesheet using qt designer
+        # logger.debug('adding stylesheet')
+        # # adds a stylesheet
+        # # self.main_table.setStyleSheet("""
+        # #     font: 12pt "Sitka Text";
+        # #     background: rgb(204, 199, 255);
+        # #     """)
+
+        logger.debug('adding year to combo box')
+        # todo: update combo box based on years in the transaction file
+        self.cb_year.addItems(['2018', '2019', '2020'])
+
+    def set_year(self):
+        self.year = int(self.cb_year.currentText())
 
     def open_file(self):
         self.open_file_name = QFileDialog.getOpenFileName(self, "Open CSV File", app_data_path, 'All files (*.*)')[0]
         logger.debug(f'open_file_name: {self.open_file_name}')
-        if self.open_file_name:
-            self.save_file_name = os.path.splitext(self.open_file_name)[0] + '_result.xlsx'
+        # if self.open_file_name:
+        #     self.save_file_name = os.path.splitext(self.open_file_name)[0] + '_result.xlsx'
 
     def save_file(self):
-        if not self.save_file_name:
+        if not self.open_file_name:
             return
+        if not self.save_file_name:
+            self.save_file_name = os.path.splitext(self.open_file_name)[0] + '_result.xlsx'
+            self.save_as_file()
+            return
+
         logger.debug(f'save_file_name: {self.save_file_name}')
         if self.save_file_name and self.result is not None:
             self.result.to_excel(self.save_file_name)
@@ -86,12 +102,14 @@ class Main(QMainWindow):
         if self.save_file_name and self.result is not None:
             self.result.to_excel(self.save_file_name)
 
-
     def calculate_total(self):
         if (self.open_file_name is None) or not(self.open_file_name.endswith('.csv')):
             logger.debug('Not a valid csv file')
             QMessageBox.warning(self, 'Warning', 'Not a valid csv file!')
             return False
+
+        # let's create the table here
+        self.create_table()
 
         df = pd.read_csv(self.open_file_name, index_col='Date')
         logger.debug(f'dataframe dtypes: {df.dtypes}')
@@ -124,8 +142,11 @@ class Main(QMainWindow):
                 frame = df_month.groupby(['Category'])['Amount'].sum().to_frame().rename(index=str,
                                                                                          columns={'Amount': f'{month} {self.year}'})
                 df_month_sums.append(frame)
+        if not df_month_sums:
+            logger.info("There's no matching transactions. Quitting!")
+            return
 
-        self.result = pd.concat(df_month_sums, join='inner', axis=1, sort=True)
+        self.result = pd.concat(df_month_sums, axis=1, sort=True)
         self.result.fillna(0, inplace=True)
         logger.debug(f'result:\n{self.result}')
 
@@ -138,15 +159,23 @@ class Main(QMainWindow):
         self.update_table()
 
     def create_table(self):
+        # clear the table first
+        self.clear_table()
+
         self.main_table.setColumnCount(len(self.months))
         self.main_table.setHorizontalHeaderLabels(self.months)
+
+    def clear_table(self):
+        self.main_table.setRowCount(0)
 
     def update_table(self):
         logger.debug('updating table')
         self.main_table.setColumnCount(len(self.result.columns))
         self.main_table.setHorizontalHeaderLabels(self.result.columns)
-        stylesheet = "::section{background: red;}"
-        self.main_table.horizontalHeader().setStyleSheet(stylesheet)
+        """ todo: use designer to create stylesheet
+         stylesheet = "::section{background: red;}"
+         self.main_table.horizontalHeader().setStyleSheet(stylesheet)
+         """
         self.main_table.setRowCount(len(self.result.index))
         self.main_table.setVerticalHeaderLabels(self.result.index)
 
