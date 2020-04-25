@@ -10,6 +10,8 @@ import sys
 from PyQt5 import (uic)
 from PyQt5.QtWidgets import (QApplication, QMainWindow)
 from PyQt5.Qt import QFontDatabase
+import termcolor
+import traceback
 
 app_path = os.path.dirname(__file__)
 __path__ = app_path
@@ -30,7 +32,7 @@ logger.setLevel(logging.DEBUG)
 class Main(QMainWindow):
     def __init__(self, *args, **kargs):
         super().__init__(*args, **kargs)
-        uic.loadUi(r'ui_files\main.ui', self)
+        uic.loadUi(r'ui_files/main.ui', self)
         logger.debug('loading main.ui')
         self.setWindowTitle(__appname__)
         self.init_ui()
