@@ -1,4 +1,5 @@
 # https://stackoverflow.com/questions/32141623/pyqt5-and-asyncio-yield-from-never-finishes
+# https://pypi.org/project/Quamash/
 
 import sys
 import asyncio
