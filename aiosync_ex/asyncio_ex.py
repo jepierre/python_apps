@@ -26,14 +26,14 @@ def main(*args):
     ch.setLevel(logging.DEBUG)
     formatter = logging.Formatter(
         "%(asctime)s - %(name)s - %(levelname)s - <%(funcName)s:%(lineno)s> - %(message)s",
-        "H",
+        "%Y-%m-%d %H:%M:%S",
     )
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
     async def print_x(name, number, seconds):
         for i in range(number):
-            print("Task {} at number: {}".format(name, i))
+            logger.debug("Task {} at number: {}".format(name, i))
             await asyncio.sleep(seconds)
 
     start = time.time()
