@@ -82,13 +82,13 @@ class Main(QMainWindow):
             self.async_task.cancel()
             self.async_task = None
 
-        if self.worker_thread is None:
-            self.worker_thread = WorkerThread(self.print_thread3)
-            self.worker_thread.finished.connect(lambda: logger.debug("Done"))
-            self.worker_thread.start()
-        elif self.worker_thread.isRunning():
-            self.worker_thread.terminate()
-            self.worker_thread = None
+        # if self.worker_thread is None:
+        #     self.worker_thread = WorkerThread(self.print_thread3)
+        #     self.worker_thread.finished.connect(lambda: logger.debug("Done"))
+        #     self.worker_thread.start()
+        # elif self.worker_thread.isRunning():
+        #     self.worker_thread.terminate()
+        #     self.worker_thread = None
 
         # if self.worker_thread2 is None:
         #     self.worker_thread2 = WorkerThread(self.print_thread2)
@@ -123,7 +123,8 @@ if __name__ == "__main__":
 
     App = Main()
     App.show()
+    sys.exit(app.exec_())
 
-    with loop:
-        loop.run_forever()
+    # with loop:
+    #     loop.run_forever()
 
