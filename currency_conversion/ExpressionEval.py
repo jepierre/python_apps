@@ -10,12 +10,13 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import sys
 
+
 class Form(QDialog):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
 
         self.results_list = QTextBrowser()
-        self.results_input = QLineEdit('Enter an expression and press return key.')
+        self.results_input = QLineEdit("Enter an expression and press return key.")
 
         layout = QVBoxLayout()
         layout.addWidget(self.results_list)
@@ -26,16 +27,17 @@ class Form(QDialog):
         self.results_input.setFocus()
 
         self.results_input.returnPressed.connect(self.compute)
-        self.setWindowTitle('Expression Evaluations')
+        self.setWindowTitle("Expression Evaluations")
 
         self.show()
 
     def compute(self):
         try:
             text = self.results_input.text()
-            self.results_list.append(f'{text} = <b>{eval(text)}</b>')
+            self.results_list.append(f"{text} = <b>{eval(text)}</b>")
         except:
             self.results_list.append("<font color=red><b>Expression invalid</b></font>")
+
 
 def main():
     app = QApplication(sys.argv)
@@ -43,5 +45,5 @@ def main():
     sys.exit(app.exec_())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -48,35 +48,38 @@ def squared_root_bisection(x):
     num_guesses = 0
     low = 0.0
     high = max(1.0, x)
-    ans = (high + low)/2.0
-    while abs(ans**2 - x) >= epsilon:
+    ans = (high + low) / 2.0
+    while abs(ans ** 2 - x) >= epsilon:
         print("low = {}, high = {}, ans = {}".format(low, high, ans))
         num_guesses += 1
-        if ans**2 < x:
+        if ans ** 2 < x:
             low = ans
         else:
             high = ans
-        ans = (high + low)/2.0
+        ans = (high + low) / 2.0
 
     print("num_guesses = {}".format(num_guesses))
     print("{:.2f}, is close to square root of {}".format(ans, x))
 
+
 def squared_root_newton_raphson(x):
     epsilon = 0.01
     num_guesses = 0
-    guess = x/2.0
-    while abs(guess*guess - x) >= epsilon:
-        guess = guess - (((guess**2) - x)/(2*guess))
+    guess = x / 2.0
+    while abs(guess * guess - x) >= epsilon:
+        guess = guess - (((guess ** 2) - x) / (2 * guess))
         print("guess = {}".format(guess))
         num_guesses += 1
 
     print("num_guesses = {}".format(num_guesses))
     print("{:1.02f}, is close to square root of {}".format(guess, x))
 
+
 def sum_string(letter):
-    numbers = letter.split(sep=',')
+    numbers = letter.split(sep=",")
     print(numbers)
     print("sum of numbers: {}".format(sum([float(num) for num in numbers])))
+
 
 def search(L, e):
     """Assumes L is a list, the elements of which are in ascending order.
@@ -85,24 +88,26 @@ def search(L, e):
     def b_search(L, e, low, high):
         if high == low:
             return L[low] == e
-        mid = (low + high)//2
+        mid = (low + high) // 2
         if L[mid] == e:
             return True
         elif L[mid] > e:
-            if low == mid: # nothing left to search
+            if low == mid:  # nothing left to search
                 return False
             else:
-                return b_search(L, e, low, mid-1)
+                return b_search(L, e, low, mid - 1)
         else:
-            return b_search(L, e, mid+1, high)
+            return b_search(L, e, mid + 1, high)
 
     if len(L) == 0:
         return False
     else:
-        return b_search(L, e, 0, len(L) -1)
+        return b_search(L, e, 0, len(L) - 1)
+
 
 def check_odd(number):
-    return not(number%2 == 0)
+    return not (number % 2 == 0)
+
 
 def main():
     # print_largest_odd_number()
@@ -113,5 +118,5 @@ def main():
     print(search([1, 2, 4, 5, 7, 9, 10], 10))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

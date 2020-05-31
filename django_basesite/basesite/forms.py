@@ -1,6 +1,7 @@
 # sendemail/forms.py
 from django import forms
 
+
 class ContactForm(forms.Form):
     from_ = forms.EmailField(required=True)
     subject = forms.CharField(required=True)

@@ -27,7 +27,6 @@ sys.excepthook = exception_hook
 
 
 class WorkerThread(QThread):
-
     def __init__(self, func):
         QThread.__init__(self)
         self.func = func
@@ -37,26 +36,23 @@ class WorkerThread(QThread):
 
 
 class Main(QMainWindow):
-
     def __init__(self):
         super(Main, self).__init__()
-        uic.loadUi(r'main.ui', self)
+        uic.loadUi(r"main.ui", self)
         self.async_task = None
         self.worker_thread = None
         self.worker_thread2 = None
         self.init_ui()
 
-
     def init_ui(self):
-        self.start_pb.clicked.connect( self.master)
+        self.start_pb.clicked.connect(self.master)
         self.start_pb.clicked.connect(self.write_hello)
-
 
     def print_thread3(self):
         for x in range(1000):
-            logger.debug(f'in temp class: {x}')
-            self.thread3LineEdit.setText(f'in temp class: {x}')
-            time.sleep(.01)
+            logger.debug(f"in temp class: {x}")
+            self.thread3LineEdit.setText(f"in temp class: {x}")
+            time.sleep(0.01)
 
     # def print_thread2(self):
     #     for x in range(10000):
@@ -68,12 +64,12 @@ class Main(QMainWindow):
     # def master(self):
     #     with loop:
     #         yield self.run_progress_bar()
-            # loop.run_until_complete(self.run_progress_bar())
-        # yield self.run_progress_bar()
-        # with loop:
-        #     loop.run_until_complete(self.run_progress_bar())
-        # with QThreadExecutor(1) as exec:
-        #     yield from loop.run_in_executor(exec, self.last_50)
+    # loop.run_until_complete(self.run_progress_bar())
+    # yield self.run_progress_bar()
+    # with loop:
+    #     loop.run_until_complete(self.run_progress_bar())
+    # with QThreadExecutor(1) as exec:
+    #     yield from loop.run_in_executor(exec, self.last_50)
 
     def master(self):
         if self.async_task is None:
@@ -103,7 +99,7 @@ class Main(QMainWindow):
         for i in range(100):
             logger.debug(f"index: {i}")
             self.progress_bar.setValue(i)
-            await asyncio.sleep(.1)
+            await asyncio.sleep(0.1)
 
     def write_hello(self):
         logger.debug("writing hello")
@@ -116,7 +112,6 @@ if __name__ == "__main__":
     ch.setLevel(logging.DEBUG)
     logger.addHandler(ch)
 
-
     app = QApplication(sys.argv)
     loop = QEventLoop(app)
     asyncio.set_event_loop(loop)
@@ -127,4 +122,3 @@ if __name__ == "__main__":
 
     # with loop:
     #     loop.run_forever()
-
