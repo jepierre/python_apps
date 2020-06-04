@@ -3,6 +3,7 @@
 Author: Jean Pierre
 Last Edited:
 
+https://stackoverflow.com/questions/28655198/best-way-to-display-logs-in-pyqt/35593078#35593078
 """
 import logging
 
