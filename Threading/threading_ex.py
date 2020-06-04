@@ -5,8 +5,10 @@ from PyQt5 import uic
 import sys
 import time
 import logging
-logger = logging.getLogger('root')
+
+logger = logging.getLogger("root")
 logger.setLevel(logging.DEBUG)
+
 
 class Main(QMainWindow):
     INTERVAL = 10
@@ -18,8 +20,8 @@ class Main(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        uic.loadUi(r'main.ui', self)
-        self.message = 'Alert!'
+        uic.loadUi(r"main.ui", self)
+        self.message = "Alert!"
         self.initUi()
 
     def initUi(self):
@@ -41,7 +43,7 @@ class Main(QMainWindow):
         self.timer.start(self.INTERVAL)
 
     def loop2(self):
-        logger.debug('loop2')
+        logger.debug("loop2")
         QTimer.singleShot(self.INTERVAL, self.finished.emit)
         # self.finished.emit()
         # time.sleep(1)
@@ -55,7 +57,7 @@ class Main(QMainWindow):
     def loop3(self):
         self.count1 %= 15
         self.count1 += 1
-        self.print3LineEdit.setText(f'print3 counter: {self.count1}')
+        self.print3LineEdit.setText(f"print3 counter: {self.count1}")
         QTimer.singleShot(self.INTERVAL, self.loop3)
 
     def stop(self):
@@ -67,7 +69,7 @@ class Main(QMainWindow):
             self.count = 0
         else:
             self.count += 1
-        self.printLineEdit.setText(f'hello: {self.count}')
+        self.printLineEdit.setText(f"hello: {self.count}")
 
         return "reg done"
 
@@ -82,16 +84,16 @@ class Main(QMainWindow):
                 time.sleep(1)
                 self.thread_counter += 1
 
-        self.threadLineEdit.setText(f'thread counter: {self.thread_counter}')
+        self.threadLineEdit.setText(f"thread counter: {self.thread_counter}")
         self.finished.emit(True)
         # return "thread msg done"
+
 
 def main():
     # Enable logging on the console
     ch = logging.StreamHandler()
     ch.setLevel(logging.DEBUG)
     logger.addHandler(ch)
-
 
     sys._excepthook = sys.excepthook
 
@@ -107,5 +109,6 @@ def main():
     App = Main()
     sys.exit(app.exec_())
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -6,18 +6,31 @@ Last Edited: 05/19/2018
 calculator.py
 http://zetcode.com/gui/pyqt5/layout/
 """
-__appname__ = 'TabExample'
+__appname__ = "TabExample"
 
 
 # Import Modules
 import sys
 import os
 import logging
-from PyQt5.QtWidgets import (QWidget, QLabel, QApplication, QMainWindow, QGridLayout, QPushButton, QVBoxLayout,
-                             QLineEdit, QGroupBox, QSpacerItem, QSizePolicy, QTextEdit)
+from PyQt5.QtWidgets import (
+    QWidget,
+    QLabel,
+    QApplication,
+    QMainWindow,
+    QGridLayout,
+    QPushButton,
+    QVBoxLayout,
+    QLineEdit,
+    QGroupBox,
+    QSpacerItem,
+    QSizePolicy,
+    QTextEdit,
+)
 from PyQt5.QtCore import Qt
+
 # Setup Logging
-logger = logging.getLogger('root')
+logger = logging.getLogger("root")
 logger.setLevel(logging.DEBUG)
 
 
@@ -53,5 +66,5 @@ def main():
     sys.exit(app.exec_())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

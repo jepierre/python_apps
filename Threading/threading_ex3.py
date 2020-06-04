@@ -4,12 +4,22 @@ https://nikolak.com/pyqt-threading-tutorial/
 """
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QSplashScreen, QMainWindow
-from PyQt5.QtCore import QTime, QTimer, Qt, QThread, pyqtSignal, QObject, QRunnable, QThreadPool
+from PyQt5.QtCore import (
+    QTime,
+    QTimer,
+    Qt,
+    QThread,
+    pyqtSignal,
+    QObject,
+    QRunnable,
+    QThreadPool,
+)
 from PyQt5 import uic
 import sys
 import time
 import logging
-logger = logging.getLogger('root')
+
+logger = logging.getLogger("root")
 logger.setLevel(logging.DEBUG)
 
 
@@ -24,14 +34,14 @@ class RunableThread(QRunnable):
         self.threadLineEdit = line_edit
 
     def run(self):
-        logger.debug('printing from thread 3')
+        logger.debug("printing from thread 3")
         loop = 1000
 
         for x in range(loop):
             logger.debug(f"thread 3: in loop: {x}")
             time.sleep(1)
 
-            self.threadLineEdit.setText(f'thread counter: {x}')
+            self.threadLineEdit.setText(f"thread counter: {x}")
         self.finished.emit()
 
 
@@ -44,7 +54,7 @@ class WorkerThread(QThread):
         self.threadLineEdit = line_edit
 
     def run(self):
-        logger.debug('printing from thread 1')
+        logger.debug("printing from thread 1")
         loop = 1000
         for x in range(loop):
             logger.debug(f"in loop: {x}")
@@ -55,7 +65,7 @@ class WorkerThread(QThread):
                 time.sleep(1)
                 self.thread_counter += 1
 
-            self.threadLineEdit.setText(f'thread counter: {self.thread_counter}')
+            self.threadLineEdit.setText(f"thread counter: {self.thread_counter}")
 
 
 class ObjectToThread(QObject):
@@ -66,28 +76,26 @@ class ObjectToThread(QObject):
         self.thread2LineEdit = line_edit
 
     def long_running_process(self):
-        logger.debug('printing from thread 2')
+        logger.debug("printing from thread 2")
         loop = 1000
 
         for x in range(loop):
             logger.debug(f"thread 2: in loop: {x}")
             time.sleep(1)
 
-            self.thread2LineEdit.setText(f'thread counter: {x}')
+            self.thread2LineEdit.setText(f"thread counter: {x}")
         self.finished.emit()
 
 
 class Main(QMainWindow):
-
     class TempClass(QThread):
         def __init__(self):
             QThread.__init__(self)
 
         def run(self):
             for x in range(1000):
-                logger.debug(f'in temp class: {x}')
+                logger.debug(f"in temp class: {x}")
                 time.sleep(1)
-
 
     tmp_clas = TempClass()
     INTERVAL = 1000
@@ -99,7 +107,7 @@ class Main(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        uic.loadUi(r'main.ui', self)
+        uic.loadUi(r"main.ui", self)
         self.init_ui()
 
     def init_ui(self):
@@ -136,12 +144,11 @@ class Main(QMainWindow):
     def print_all_done(self):
         logger.debug("all done")
 
-
     # Timer with single shot
     def print_msg(self):
         self.count1 %= 1000
         self.count1 += 1
-        self.printLineEdit.setText(f'print counter: {self.count1}')
+        self.printLineEdit.setText(f"print counter: {self.count1}")
         QTimer.singleShot(self.INTERVAL, self.print_msg)
 
 
@@ -165,5 +172,6 @@ def main():
     App = Main()
     sys.exit(app.exec_())
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
